@@ -141,14 +141,13 @@ export default function AdminLoginPage() {
             required
           />
 
-<button
-  type="submit"
-  onClick={() => console.log("SIGN IN CLICKED")}
-  className="w-full rounded bg-black text-white p-2"
->
-  Sign in
-</button>
-
+          <button
+            type="submit"
+            disabled={busy}
+            className="w-full rounded bg-black text-white p-2 disabled:opacity-60"
+          >
+            {busy ? "Signing in…" : "Sign in"}
+          </button>
 
           <button
             type="button"

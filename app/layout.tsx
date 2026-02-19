@@ -23,7 +23,7 @@ const navItems = [
   { label: "Shop", href: "/shop" },
   { label: "Genres", href: "/genres" },
   { label: "Cart", href: "/cart" },
-  { label: "Admin", href: "/admin" },
+  { label: "Admin", href: "/admin/login" },
 ];
 
 
