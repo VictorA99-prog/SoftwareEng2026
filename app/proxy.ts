@@ -21,7 +21,6 @@ export default async function proxy(request: NextRequest) {
     }
   );
 
-  // Refresh session if present
   await supabase.auth.getUser();
 
   return response;
