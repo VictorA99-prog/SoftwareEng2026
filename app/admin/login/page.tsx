@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { createClientBrowser } from "@/lib/supabase/client";
 
 export default function AdminLoginPage() {
-  const supabase = createClient();
+  const supabase = createClientBrowser();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,32 +27,37 @@ export default function AdminLoginPage() {
   async function signIn(e: React.FormEvent) {
     e.preventDefault();
     if (busy) return;
-
+  
     setBusy(true);
     setStatus("");
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password,
-    });
-
-    if (error) {
-      setStatus(`Sign in failed: ${error.message}`);
+  
+    const timeout = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("Sign-in timed out. Check proxy/cookies.")), 8000)
+    );
+  
+    try {
+      const res = await Promise.race([
+        supabase.auth.signInWithPassword({
+          email: email.trim(),
+          password,
+        }),
+        timeout,
+      ]);
+  
+      if (res.error) {
+        setStatus(`Sign in failed: ${res.error.message}`);
+        return;
+      }
+  
+      setStatus("Signed in! Redirecting…");
+      window.location.assign("/admin");
+    } catch (err: any) {
+      setStatus(` ${err?.message ?? "Sign-in failed"}`);
+    } finally {
       setBusy(false);
-      return;
     }
-
-    // Confirm session/user exists
-    const u = await supabase.auth.getUser();
-    if (!u.data.user) {
-      setStatus("Signed in, but session not ready. Refresh the page once.");
-      setBusy(false);
-      return;
-    }
-
-    setStatus("Signed in! Redirecting to /admin …");
-    window.location.assign("/admin");
   }
+  
 
   async function signUp() {
     if (busy) return;
