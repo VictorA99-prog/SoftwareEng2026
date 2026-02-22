@@ -1,12 +1,10 @@
 
 const express = require('express');
 const cors = require('cors'); // Allow front end to request from backend port
-
+const dotenv = require('dotenv').config(); 
 const app = express();
 
-// Hardcode port for now, can make environment variable later if needed
-// (will probably do so when adding database connection)
-const PORT = 5000; 
+const PORT = process.env.PORT || 5000; // Use environment variable for port or default to 5000
 
 app.use(cors());
 app.use(express.json());
