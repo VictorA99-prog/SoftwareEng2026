@@ -1,14 +1,17 @@
 {
-  "name": "softwareeng2026-2",
+  "name": "softwareeng2026",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "server": "node server/index.js",
     "lint": "eslint"
   },
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.97.0",
     "next": "16.1.6",
@@ -17,11 +20,13 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/express": "^5.0.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "nodemon": "^3.11.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
