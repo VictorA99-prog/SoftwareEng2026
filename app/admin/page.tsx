@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { createClientBrowser } from "@/lib/supabase/client";
 
 type Vinyl = {
   id: string;
@@ -12,7 +12,7 @@ type Vinyl = {
 };
 
 export default function AdminDashboard() {
-  const supabase = createClient();
+  const supabase = createClientBrowser();
 
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState<string | null>(null);
