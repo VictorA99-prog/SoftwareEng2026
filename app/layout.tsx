@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "/shop" },
+  { label: "Shop", href: "/products" },
   { label: "Genres", href: "/genres" },
   { label: "Cart", href: "/cart" },
   { label: "Admin", href: "/admin/login" },
@@ -59,17 +59,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             {/* tabs */}
-            <nav className="mt-5 flex flex-wrap gap-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="bg-[#F7E8D6] border-2 border-[#1f1f1f] px-4 py-2 font-bold uppercase tracking-wide text-sm hover:bg-[#1f1f1f] hover:text-[#F7E8D6] transition"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            <nav className="mt-4 flex flex-wrap gap-2 rounded-sm bg-black p-2">
+  {navItems.map((item) => (
+    <Link
+      key={item.href}
+      href={item.href}
+      className="rounded-sm border border-white bg-black px-3 py-2 text-sm font-extrabold uppercase tracking-wide text-white hover:bg-white hover:text-black"
+    >
+      {item.label}
+    </Link>
+  ))}
+</nav>
           </div>
         </header>
 
