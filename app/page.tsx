@@ -47,15 +47,14 @@ export default async function Home() {
 
         {/* big title */}
         <h1 className="mt-12 text-center font-black uppercase tracking-tight leading-[0.9] text-[56px] sm:text-[84px] md:text-[110px]">
-          Paper
+          Sunset
           <br />
-          Grooves
+          Vinyl 
         </h1>
 
         <p className="mx-auto mt-8 max-w-3xl text-center text-lg sm:text-xl font-semibold text-[#1f1f1f]/80">
           A cozy vinyl storefront for rare pressings, modern classics, and
-          curated collections. Browse by genre, add to cart, and check out in a
-          clean, poster-inspired UI.
+          curated collections. Browse by genre, add to cart, and check out
         </p>
 
 
