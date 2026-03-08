@@ -22,6 +22,7 @@ app.get('/health', (req, res) => {
 
 // Add endpoints for route files here
 app.use('/products', require('./routes/products'));
+app.use('/orders', require('./routes/orders'));
 
 // Start server
 app.listen(PORT, () => {
