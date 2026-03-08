@@ -196,7 +196,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Add Vinyl Form */}
-      <div className="border-4 border-black p-5 bg-[#F7E8D6] space-y-4 shadow-[8px_8px_0_0_#000]">
+      <div className="border-4 border-black p-5 bg-[#3D2F3F] space-y-4 shadow-[8px_8px_0_0_#000]">
         <div className="flex items-center justify-between gap-3">
           <h2 className="text-lg font-black uppercase">Add Product (Vinyl)</h2>
           <div className="text-xs font-black uppercase tracking-widest opacity-70">
