@@ -14,20 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sunet Vinyl & Instrument Shop",
+  title: "Sunset Vinyl & Instrument Shop",
   description: "Vinyl shop storefront",
 };
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Shop", href: "/api/products" },
-  { label: "Genres", href: "/genres" },
-  { label: "Cart", href: "/cart" },
+  { label: "Shop", href: "/shop" },
   { label: "Admin", href: "/admin/login" },
 ];
 
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body
@@ -35,71 +36,75 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           geistSans.variable,
           geistMono.variable,
           "antialiased",
-          "bg-[#F7E8D6]", // cream paper
+          "bg-[#F7E8D6]",
           "text-[#1f1f1f]",
         ].join(" ")}
       >
         <header className="sticky top-0 z-50 w-full">
-  {/* subtle paper grid */}
-  <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-28 bg-[#FFF3E6]" />
-  <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-28 opacity-[0.12] [background-image:linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] [background-size:28px_28px]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-[#FFF3E6]" />
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 opacity-[0.12] [background-image:linear-gradient(#000_1px,transparent_1px),linear-gradient(90deg,#000_1px,transparent_1px)] [background-size:28px_28px]" />
 
-  {/* full-bleed strip */}
-  <div className="border-b-2 border-black bg-[#FFF3E6]">
-    <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
-      {/* top row: brand + contact */}
-      <div className="flex items-center justify-between gap-3">
-        <Link
-          href="/"
-          className="group inline-flex items-center gap-3"
-        >
-          {/* chunky logo block */}
-          <span className="inline-flex items-center rounded-sm border-2 border-black bg-black px-4 py-2 text-sm font-black uppercase tracking-widest text-[#FFF3E6] shadow-[6px_6px_0_0_#000] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:shadow-[10px_10px_0_0_#000]">
-            Sunset Vinyl
-          </span>
+          <div className="border-b-2 border-black bg-[#FFF3E6]">
+            <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6">
+              {/* top row */}
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                {/* brand */}
+                <div className="flex flex-col gap-2">
+                  <Link href="/" className="group inline-flex items-center gap-3 w-fit">
+                    <span className="inline-flex items-center rounded-sm border-2 border-black bg-black px-4 py-2 text-sm font-black uppercase tracking-widest text-[#FFF3E6] shadow-[6px_6px_0_0_#000] transition-all duration-150 group-hover:-translate-y-0.5 group-hover:shadow-[10px_10px_0_0_#000]">
+                      Sunset Vinyl
+                    </span>
+                    <span className="hidden sm:inline text-xs font-black uppercase tracking-widest text-black/80">
+                      records + gear
+                    </span>
+                  </Link>
+                </div>
 
-          {/* minimal subtext (optional) */}
-          <span className="hidden sm:inline text-xs font-black uppercase tracking-widest text-black/80">
-            records + gear
-          </span>
-        </Link>
+                {/* utility buttons */}
+                <div className="flex flex-wrap items-center justify-start gap-2 sm:justify-end">
+                  <Link
+                    href="/cart"
+                    className="inline-flex items-center rounded-sm border-2 border-black bg-[#F2D23C] px-4 py-2 text-xs font-black uppercase tracking-widest text-black shadow-[5px_5px_0_0_#000] transition-all duration-150 hover:-translate-y-0.5 hover:bg-white"
+                  >
+                    Cart
+                  </Link>
 
-        <Link
-          href="/contact"
-          className="inline-flex items-center rounded-sm border-2 border-black bg-[#FFD6A5] px-3 py-2 text-xs font-black uppercase tracking-widest text-black shadow-[6px_6px_0_0_#000] transition-all duration-150 hover:-translate-y-0.5 hover:bg-white"
-        >
-          Contact
-        </Link>
-      </div>
+                  <Link
+                    href="/login"
+                    className="inline-flex items-center rounded-sm border-2 border-black bg-white px-4 py-2 text-xs font-black uppercase tracking-widest text-black shadow-[5px_5px_0_0_#000] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#FFD6A5]"
+                  >
+                    Login | Create Account
+                  </Link>
 
-      {/* nav: tape-tab bar */}
-      <nav className="mt-4">
-        <div className="flex flex-wrap items-center gap-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group inline-flex items-center rounded-sm border-2 border-black bg-black px-3 py-2 text-xs font-black uppercase tracking-widest text-[#FFF3E6] shadow-[5px_5px_0_0_#000] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#FF6B6B] hover:text-black"
-            >
-              <span className="relative">
-                {item.label}
-                {/* tiny underline that slides in */}
-                <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-current transition-all duration-150 group-hover:w-full" />
-              </span>
-            </Link>
-          ))}
+                </div>
+              </div>
 
-          {/* little accent tag on the right (optional) */}
-          <div className="ml-auto hidden md:block">
-            <div className="rounded-sm border-2 border-black bg-white px-3 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-black shadow-[5px_5px_0_0_#000]">
-              Sunset Drop
+              {/* nav row */}
+              <nav className="mt-5 border-t-2 border-black pt-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group inline-flex items-center rounded-sm border-2 border-black bg-black px-3 py-2 text-xs font-black uppercase tracking-widest text-[#FFF3E6] shadow-[5px_5px_0_0_#000] transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#88A7A9] hover:text-black"
+                    >
+                      <span className="relative">
+                        {item.label}
+                        <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-current transition-all duration-150 group-hover:w-full" />
+                      </span>
+                    </Link>
+                  ))}
+
+                  <div className="ml-auto hidden md:block">
+                    <div className="rounded-sm border-2 border-black bg-white px-3 py-2 text-[10px] font-black uppercase tracking-[0.25em] text-black shadow-[5px_5px_0_0_#000]">
+                      Sunset Drop
+                    </div>
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-  </div>
-</header>
+        </header>
 
         <main className="mx-auto max-w-6xl px-5 pb-16">{children}</main>
       </body>

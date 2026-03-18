@@ -21,9 +21,6 @@ export default async function Home() {
               <div className="h-56 w-56 sm:h-64 sm:w-64 rounded-full bg-[#F2D23C] border-4 border-[#1f1f1f] flex items-center justify-center">
                 <div className="text-center px-6">
                   <div className="text-5xl">☼</div>
-                  <p className="mt-2 font-black uppercase tracking-wide text-sm">
-                    Vinyl Vibes
-                  </p>
                 </div>
               </div>
             </div>
@@ -37,9 +34,9 @@ export default async function Home() {
                     "polygon(10% 0%, 90% 0%, 100% 30%, 100% 70%, 90% 100%, 10% 100%, 0% 70%, 0% 30%)",
                 }}
               >
-                Feb 17
+                SALE
                 <br />
-                6–9 PM
+                MARCH 67th
               </div>
             </div>
           </div>

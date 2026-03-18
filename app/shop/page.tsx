@@ -1,3 +1,5 @@
+import ProductsClient from "../api/products/products-client";
+
 export default function ShopPage() {
-    return <div className="pt-10">Shop (coming soon)</div>;
-  }
+  return <ProductsClient />;
+}
